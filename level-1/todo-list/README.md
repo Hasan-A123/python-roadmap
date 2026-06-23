@@ -1,50 +1,52 @@
-# To-Do List
+# 📝 Project 5 - To-Do List (Python Roadmap)
 
-## Description
-
-A command-line To-Do List application built in Python.
-
-This project allows the user to manage a list of tasks through a simple menu.
+A simple command-line To-Do List application built using Python.
 
 ---
 
-## Concepts Practised
+## 🚀 Features
 
-- Variables
-- Lists
-- Loops
-- Functions
-- User Input
-- Conditionals
-
----
-
-## Features
-
-- Add tasks
-- View tasks
-- Remove tasks
-- Exit the application
+- Add new tasks
+- View all tasks
+- Remove tasks by number
+- Prevent empty tasks
+- Prevent duplicate tasks
+- Confirmation before deleting tasks
+- Displays total number of tasks
 
 ---
 
-## Future Improvements
+## 🧠 Concepts Practised
 
-- Save tasks to a file
-- Mark tasks as completed
-- Edit existing tasks
-- Sort tasks alphabetically
-
----
-
-## Lessons Learned
-
-(To be completed after finishing the project.)
+- Python lists
+- While loops
+- Conditional statements
+- Input handling
+- Enumerate function
+- Index validation
+- Basic program structure
+- User input validation
 
 ---
 
-## How to Run
+## ▶️ How to Run
 
 ```bash
-py main.py
-```
+python main.py
+
+📌 Example
+===== TO-DO LIST =====
+Tasks: 2
+
+1. Add Task
+2. View Tasks
+3. Remove Task
+4. Exit
+
+What is your choice? 1
+Enter a task: Learn Python
+"Learn Python" added successfully!
+
+
+📈 What I Learned
+This project helped me understand how to build a menu-driven program using loops, lists, and conditionals in Python.
