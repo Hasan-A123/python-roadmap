@@ -32,7 +32,7 @@ Projects:
 - ✅ Interactive Greeter
 - ✅ Basic Calculator
 - ✅ Number Guessing Game
-- ⬜ To-Do List (CLI)
+- ✅ To-Do List (CLI)
 - ⬜ Password Generator
 - ⬜ Rock Paper Scissors
 - ⬜ Hangman
