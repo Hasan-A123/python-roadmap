@@ -2,30 +2,27 @@
 
 A simple command-line To-Do List application built using Python.
 
+This project allows users to manage daily tasks using a menu-driven interface.
+
 ---
 
 ## 🚀 Features
 
-- Add new tasks
+- Add a new task
 - View all tasks
-- Remove tasks by number
-- Prevent empty tasks
-- Prevent duplicate tasks
-- Confirmation before deleting tasks
-- Displays total number of tasks
+- Remove a task
+- Exit the program
 
 ---
 
 ## 🧠 Concepts Practised
 
 - Python lists
-- While loops
-- Conditional statements
-- Input handling
-- Enumerate function
-- Index validation
-- Basic program structure
-- User input validation
+- Loops (`while`, `for`)
+- Conditional statements (`if/elif/else`)
+- Input handling and validation
+- Indexing and list operations
+- Basic user interface design (CLI)
 
 ---
 
@@ -34,19 +31,14 @@ A simple command-line To-Do List application built using Python.
 ```bash
 python main.py
 
-📌 Example
+📌 Example Usage
 ===== TO-DO LIST =====
-Tasks: 2
-
 1. Add Task
 2. View Tasks
 3. Remove Task
 4. Exit
 
-What is your choice? 1
-Enter a task: Learn Python
-"Learn Python" added successfully!
-
-
 📈 What I Learned
-This project helped me understand how to build a menu-driven program using loops, lists, and conditionals in Python.
+How to store multiple values using lists
+How to build a menu-driven program
+How to safely remove items using indexes
