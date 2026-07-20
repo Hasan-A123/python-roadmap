@@ -1,135 +1,124 @@
 # ====================================
-# Project 6 - Contact Book
+# Project 5 - To-Do List
 # Python Roadmap
-# Store and manage contacts using a dictionary
-# Supports: Add, View, Search, Delete, Update
+# Simple To-Do List Application
+# Allows users to add, view, and remove tasks
 # ====================================
 
 
 def main():
 
-    # Dictionary to store contacts in format:
-    # { "name": "phone_number" }
-    contacts = {}
+    # List to store tasks
+    tasks = []
 
     while True:
-        # Main menu display
-        print("\n==== CONTACT BOOK ====")
-        print(f"Contacts: {len(contacts)}")
-        print("1. Add Contact")
-        print("2. View Contact")
-        print("3. Search Contact")
-        print("4. Delete Contact")
-        print("5. Update Contact")
-        print("6. Exit")
+
+        # =========================
+        # Main Menu
+        # =========================
+        print("\n===== TO-DO LIST =====")
+        print(f"Tasks: {len(tasks)}")
+        print("1. Add Task")
+        print("2. View Tasks")
+        print("3. Remove Task")
+        print("4. Exit")
 
         choice = input("\nChoose an option: ")
 
         # =========================
-        # Add Contact
+        # Add Task
         # =========================
         if choice == "1":
-            print("Add Contact")
+            print("\nAdd a new task")
 
-            name = input("What is the name?: ").strip()
-            phone_number = input("What is the phone number?: ").strip()
+            # Get task from the user
+            task = input("Enter a task: ").strip()
 
-            # Validate input
-            if name in contacts:
-                print("Contact already exists")
-                continue
-            if not name or not phone_number:
-                print("Empty contact not allowed")
+            # Validate task input
+            if task == "":
+                print("Empty task not allowed")
                 continue
 
-            # Store contact
-            contacts[name] = phone_number
-            print(f'"{name}" added successfully!')
+            # Prevent duplicate tasks
+            if task in tasks:
+                print("Task already exists")
+                continue
+
+            # Add task to the list
+            tasks.append(task)
+            print(f'"{task}" added successfully!')
 
         # =========================
-        # View All Contacts
+        # View Tasks
         # =========================
         elif choice == "2":
-            print("\nYour Contacts")
 
-            if not contacts:
-                print("No contacts found")
+            if len(tasks) == 0:
+                print("No tasks found")
             else:
-                # Loop through dictionary items (name + phone)
-                for i, (name, phone_number) in enumerate(contacts.items(), start=1):
-                    print(f"{i}. {name}: {phone_number}")
+                print("\nYour tasks:")
+
+                # enumerate() gives each task a number
+                # start=1 makes numbering begin at 1
+                for i, task in enumerate(tasks, start=1):
+                    print(f"{i}. {task}")
 
         # =========================
-        # Search Contact
+        # Remove Task
         # =========================
         elif choice == "3":
-            print("Search Contact")
 
-            name = input("Enter contact name: ").strip()
-
-            # Check if contact exists
-            if name in contacts:
-                print(f"Name: {name}")
-                print(f"Phone Number: {contacts[name]}")
+            if len(tasks) == 0:
+                print("No tasks to remove")
             else:
-                print("Contact not found")
+                print("\nYour tasks:")
+
+                # Display tasks with numbered positions
+                for i, task in enumerate(tasks, start=1):
+                    print(f"{i}. {task}")
+
+                # Ask the user which task to remove
+                task_number = int(input("Enter task number to remove: "))
+
+                # Lists use zero-based indexes,
+                # so subtract 1 from the user's number
+                task_index = task_number - 1
+
+                # Check that the index is valid
+                if 0 <= task_index < len(tasks):
+
+                    # Confirm before removing the task
+                    ask_user = input(
+                        "Are you sure? (yes/no): "
+                    ).lower()
+
+                    if ask_user == "yes":
+
+                        # pop() removes and returns the task
+                        removed_task = tasks.pop(task_index)
+
+                        print(f"Removed: {removed_task}")
+
+                    else:
+                        print("Cancelled")
+
+                else:
+                    print("Invalid task number")
 
         # =========================
-        # Delete Contact
+        # Exit Program
         # =========================
         elif choice == "4":
-            print("Delete Contact")
-
-            name = input("Enter contact name: ").strip()
-
-            if name in contacts:
-                # Confirmation before deletion
-                delete_contact = input("Are you sure? (yes/no): ").lower()
-
-                if delete_contact == "yes":
-                    del contacts[name]
-                    print(f'"{name}" deleted successfully!')
-                else:
-                    print("Deletion Cancelled")
-            else:
-                print("Contact not found")
-
-        # =========================
-        # Update Contact
-        # =========================
-        elif choice == "5":
-            print("Update Contact")
-
-            name = input("Enter contact name: ").strip()
-
-            if name in contacts:
-                # Show current number
-                print(f"Current Number: {contacts[name]}")
-
-                # Get new number
-                new_number = input("Enter new number: ").strip()
-
-                # Validate update
-                if not new_number:
-                    print("Phone number cannot be empty")
-                    continue
-
-                # Update dictionary
-                contacts[name] = new_number
-                print(f'"{name}" updated successfully!')
-            else:
-                print("Contact not found")
-
-        # =========================
-        # Exit program
-        # =========================
-        elif choice == "6":
-            print("Goodbye!")
+            print("Goodbye")
             break
 
+        # =========================
+        # Invalid Menu Option
+        # =========================
         else:
-            print("Invalid Operation")
+            print("Invalid option. Please choose 1-4")
 
 
+# Run the program only when this file is executed directly
 if __name__ == "__main__":
     main()
